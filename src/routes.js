@@ -40,4 +40,13 @@ router.post('/recipes/:id/edit', async (req, res) => {
 	res.redirect(`/recipes/${recipeId}`)
 })
 
-module.exports = router
+router.get('/recipes/random', async (req, res) => {
+	const db = await getDbConnection()
+router.get('/recipes/random', async (req, res) => {
+	const db = await getDbConnection()
+	const recipe = await db.get('SELECT * FROM recipes ORDER BY RANDOM() LIMIT 1')
+	res.render('recipe', { recipe })
+})onst randomIndex = Math.floor(Math.random() * recipes.length)
+	const recipe = recipes[randomIndex]
+	res.render('recipe', { recipe })
+})dule.exports = router
